@@ -1,0 +1,29 @@
+{
+  "extends": "next/core-web-vitals",
+  "overrides": [
+    {
+      "files": ["src/app/**/actions.js"],
+      "rules": {
+        "no-restricted-syntax": [
+          "error",
+          {
+            "selector": "ThrowStatement > :not(Identifier)",
+            "message": "Server Actions must RETURN expected failures: `return fail(\"...\")` from @/lib/action-result. Next strips the message off anything thrown in a production build, so a throw works in dev and shows users a generic error once deployed. Re-raising a caught fault with `throw err` is still allowed."
+          },
+          {
+            "selector": "NewExpression[callee.name=/^(Error|EvalError|RangeError|ReferenceError|SyntaxError|TypeError|URIError|AggregateError)$/]",
+            "message": "Don't construct an Error in a Server Action \u2014 even one thrown indirectly loses its message in a production build. Return `fail(\"...\")` from @/lib/action-result instead."
+          }
+        ]
+      }
+    }
+  ],
+  "env": {
+    "browser": true,
+    "node": true,
+    "es2024": true
+  },
+  "rules": {
+    "no-undef": "error"
+  }
+}

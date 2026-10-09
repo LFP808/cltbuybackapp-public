@@ -1,0 +1,56 @@
+{
+  "name": "buyback-ops-dashboard",
+  "version": "0.1.0",
+  "private": false,
+  "description": "Buyback operations dashboard for scheduling, inventory, invoicing, and customer communication.",
+  "engines": {
+    "node": ">=18.18"
+  },
+  "scripts": {
+    "dev": "next dev",
+    "dev:lan": "node scripts/dev-lan.mjs",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint && node scripts/check-sms-encoding.mjs",
+    "check-sms": "node scripts/check-sms-encoding.mjs",
+    "format": "prettier --write .",
+    "shoot": "node scripts/shoot.mjs",
+    "walkthrough": "node scripts/walkthrough.mjs",
+    "fake-inbound": "node scripts/fake-inbound.mjs",
+    "fake-call": "node scripts/fake-call.mjs",
+    "test-account": "node scripts/test-account.mjs",
+    "qa": "node scripts/qa.mjs",
+    "qa:flows": "node scripts/qa-flows.mjs",
+    "qa:teardown": "node scripts/qa-teardown.mjs",
+    "role-audit": "node scripts/role-audit.mjs",
+    "preflight": "node scripts/preflight.mjs",
+    "fake-reply": "node scripts/fake-reply.mjs"
+  },
+  "dependencies": {
+    "@radix-ui/react-dialog": "^1.1.23",
+    "@radix-ui/react-dropdown-menu": "^2.1.24",
+    "@radix-ui/react-separator": "^1.1.15",
+    "@radix-ui/react-slot": "^1.3.3",
+    "@radix-ui/react-tooltip": "^1.2.16",
+    "@supabase/ssr": "^0.5.2",
+    "@supabase/supabase-js": "^2.45.4",
+    "@twilio/voice-sdk": "^2.18.3",
+    "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.1",
+    "lucide-react": "^0.454.0",
+    "next": "^15.0.3",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "tailwind-merge": "^3.6.0",
+    "tailwindcss-animate": "^1.0.7"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.4.20",
+    "eslint": "^9.14.0",
+    "eslint-config-next": "^15.0.3",
+    "playwright": "^1.62.0",
+    "postcss": "^8.4.49",
+    "prettier": "^3.3.3",
+    "tailwindcss": "^3.4.14"
+  }
+}

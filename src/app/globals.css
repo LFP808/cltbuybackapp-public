@@ -1,0 +1,126 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/*
+ * Brand tokens (mirrored as Tailwind colors in tailwind.config.js) plus the
+ * few shadcn-style primitives — a single radius scale and a focus ring — that
+ * the UI kit leans on. Feature code keeps using the brand utility classes
+ * (text-ink, bg-accent-l, border-line, …); the primitives layer the look on
+ * top of the same palette. The page is WHITE; --bg is the sunken gray used
+ * for hovers, tracks and recessed panels, never the page itself.
+ */
+:root {
+  --bg: #f6f7f9;
+  --ink: #16181d;
+  --muted: #676c76;
+  --line: #e7e8ec;
+  --accent: #1a56db;
+  --accent-dark: #123a94;
+  --accent-l: #eaf1fd;
+  --cash: #1e8a4c;
+  --destructive: #c0392b;
+
+  /* Corner radius scale, shadcn-style. */
+  --radius: 0.65rem;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+  background: #ffffff;
+  color: var(--ink);
+}
+
+@layer base {
+  body {
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  /* Smooth, consistent interaction feel across the app. */
+  button,
+  a,
+  input,
+  textarea,
+  select,
+  [role="button"] {
+    transition-property: color, background-color, border-color, box-shadow, transform, opacity;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 150ms;
+  }
+
+  /* Refined, unobtrusive scrollbars for the dense list/thread views. */
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: #d6d8dd transparent;
+  }
+  *::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+  *::-webkit-scrollbar-thumb {
+    background: #d6d8dd;
+    border-radius: 9999px;
+  }
+  *::-webkit-scrollbar-thumb:hover {
+    background: #bcc0c8;
+  }
+}
+
+@layer components {
+  .brand-heading {
+    /* DM Serif Display ships one weight (400) that already reads as display
+       bold — a font-bold here would only trigger ugly synthetic bolding. */
+    @apply font-serif text-ink;
+  }
+}
+
+/* Reusable enter animation for page content and cards. */
+@keyframes enter-up {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-enter {
+  animation: enter-up 0.32s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+/* Snackbar entrance: slide down from the top edge + fade. */
+@keyframes toast-in {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-toast-in {
+  animation: toast-in 0.22s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+/* Reduced motion: same name, no movement — the fade alone announces it. */
+@media (prefers-reduced-motion: reduce) {
+  @keyframes toast-in {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+}

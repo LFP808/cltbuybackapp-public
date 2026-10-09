@@ -1,0 +1,185 @@
+/**
+ * The item catalog seed: what we buy, grouped by category.
+ *
+ * Pulled from the buyer price sheet (Jaime, 2026-08-13) as BASE MODELS ONLY —
+ * no storage, no carrier, no lock status. Those are per-DEVICE facts captured
+ * at check-in (mostly straight from Sickw), so "iPhone 15 Pro Max" is one
+ * catalog item, not thirty-six sheet rows. Watch sizes stay in the name
+ * because a 46mm and a 42mm are different products to a buyer, not variants
+ * of one.
+ *
+ * No prices on purpose: pricing is negotiated per person and per device, so
+ * a reference price on the item would be an anchor nobody wants. The LIST of
+ * items lives in the `catalog_items` table (seeded from this array by the
+ * schema seed) so off-list items can be added from the Item Catalog page —
+ * or inline on the order form — without a deploy.
+ *
+ * This array stays as the seed of record and the fallback for pickers when a
+ * page renders without the DB list. Add NEW items in the app, not here — this
+ * file does not feed the running catalog.
+ *
+ * @typedef {Object} CatalogItem
+ * @property {string} name
+ * @property {string} category
+ */
+
+/** @type {CatalogItem[]} */
+export const ITEM_CATALOG = [
+  { name: "iPhone 18 Pro Max", category: "iPhone" },
+  { name: "iPhone 18 Pro", category: "iPhone" },
+  { name: "iPhone 18", category: "iPhone" },
+  { name: "iPhone 17 Pro Max", category: "iPhone" },
+  { name: "iPhone 17 Pro", category: "iPhone" },
+  { name: "iPhone 17 Air", category: "iPhone" },
+  { name: "iPhone 17", category: "iPhone" },
+  { name: "iPhone 17E", category: "iPhone" },
+  { name: "iPhone 16 Pro Max", category: "iPhone" },
+  { name: "iPhone 16 Pro", category: "iPhone" },
+  { name: "iPhone 16 Plus", category: "iPhone" },
+  { name: "iPhone 16", category: "iPhone" },
+  { name: "iPhone 16E", category: "iPhone" },
+  { name: "iPhone 15 Pro Max", category: "iPhone" },
+  { name: "iPhone 15 Pro", category: "iPhone" },
+  { name: "iPhone 15 Plus", category: "iPhone" },
+  { name: "iPhone 15", category: "iPhone" },
+  { name: "iPhone 14 Pro Max", category: "iPhone" },
+  { name: "iPhone 14 Pro", category: "iPhone" },
+  { name: "iPhone 14 Plus", category: "iPhone" },
+  { name: "iPhone 14", category: "iPhone" },
+  { name: "iPhone 13 Pro Max", category: "iPhone" },
+  { name: "iPhone 13 Pro", category: "iPhone" },
+  { name: "iPhone 13", category: "iPhone" },
+  { name: "iPhone 13 Mini", category: "iPhone" },
+  { name: "iPhone SE (3rd Gen)", category: "iPhone" },
+  { name: "iPhone 12 Pro Max", category: "iPhone" },
+  { name: "iPhone 12 Pro", category: "iPhone" },
+  { name: "iPhone 12", category: "iPhone" },
+  { name: "iPhone 12 Mini", category: "iPhone" },
+  { name: "iPhone 11 Pro Max", category: "iPhone" },
+  { name: "iPhone 11 Pro", category: "iPhone" },
+  { name: "iPhone 11", category: "iPhone" },
+  { name: "iPhone SE (2020)", category: "iPhone" },
+  { name: "iPhone XS Max", category: "iPhone" },
+  { name: "iPhone XS", category: "iPhone" },
+  { name: "iPhone XR", category: "iPhone" },
+  { name: "iPhone X", category: "iPhone" },
+  { name: "iPhone 8 Plus", category: "iPhone" },
+  { name: "iPhone 8", category: "iPhone" },
+  { name: "iPhone 7 Plus", category: "iPhone" },
+  { name: "iPhone 7", category: "iPhone" },
+  { name: "Galaxy S26 Ultra", category: "Samsung" },
+  { name: "Galaxy S26 Plus", category: "Samsung" },
+  { name: "Galaxy S26", category: "Samsung" },
+  { name: "Galaxy Z Fold 7", category: "Samsung" },
+  { name: "Galaxy Z Flip 7", category: "Samsung" },
+  { name: "Galaxy S25 Ultra", category: "Samsung" },
+  { name: "Galaxy S25 Edge", category: "Samsung" },
+  { name: "Galaxy S25 Plus", category: "Samsung" },
+  { name: "Galaxy S25", category: "Samsung" },
+  { name: "Galaxy S25 FE", category: "Samsung" },
+  { name: "Galaxy Z Fold 6", category: "Samsung" },
+  { name: "Galaxy Z Flip 6", category: "Samsung" },
+  { name: "Galaxy S24 Ultra", category: "Samsung" },
+  { name: "Galaxy S24 Plus", category: "Samsung" },
+  { name: "Galaxy S24", category: "Samsung" },
+  { name: "Galaxy Z Fold 5", category: "Samsung" },
+  { name: "Galaxy Z Flip 5", category: "Samsung" },
+  { name: "Galaxy S23 Ultra", category: "Samsung" },
+  { name: "Galaxy S23 Plus", category: "Samsung" },
+  { name: "Galaxy S23", category: "Samsung" },
+  { name: "Galaxy Z Fold 4", category: "Samsung" },
+  { name: "Galaxy Z Flip 4", category: "Samsung" },
+  { name: "Galaxy S22 Ultra", category: "Samsung" },
+  { name: "Galaxy S22+", category: "Samsung" },
+  { name: "Galaxy S22", category: "Samsung" },
+  { name: "Galaxy S21 Ultra", category: "Samsung" },
+  { name: "Galaxy S21+", category: "Samsung" },
+  { name: "Galaxy S21", category: "Samsung" },
+  { name: "Galaxy Note 20 Ultra", category: "Samsung" },
+  { name: "Galaxy Note 20", category: "Samsung" },
+  { name: "Galaxy S20 Ultra", category: "Samsung" },
+  { name: "Galaxy S20+", category: "Samsung" },
+  { name: "Galaxy S20", category: "Samsung" },
+  { name: "Galaxy Z Fold 3", category: "Samsung" },
+  { name: "Galaxy Z Flip 3", category: "Samsung" },
+  { name: "Galaxy Note 10+", category: "Samsung" },
+  { name: "Galaxy Note 10", category: "Samsung" },
+  { name: "Galaxy S10+", category: "Samsung" },
+  { name: "Galaxy S10", category: "Samsung" },
+  { name: 'iPad Pro 13" (M5)', category: "iPad" },
+  { name: 'iPad Pro 13" (M4)', category: "iPad" },
+  { name: 'iPad Pro 12.9" (6th Gen)', category: "iPad" },
+  { name: 'iPad Pro 12.9" (5th Gen)', category: "iPad" },
+  { name: 'iPad Pro 12.9" (4th Gen)', category: "iPad" },
+  { name: 'iPad Pro 12.9" (3rd Gen)', category: "iPad" },
+  { name: 'iPad Pro 11" (M5)', category: "iPad" },
+  { name: 'iPad Pro 11" (M4)', category: "iPad" },
+  { name: 'iPad Pro 11" (4th Gen)', category: "iPad" },
+  { name: 'iPad Pro 11" (3rd Gen)', category: "iPad" },
+  { name: 'iPad Pro 11" (2nd Gen)', category: "iPad" },
+  { name: 'iPad Pro 11" (1st Gen)', category: "iPad" },
+  { name: 'iPad Air 13" (M4)', category: "iPad" },
+  { name: 'iPad Air 13" (M3)', category: "iPad" },
+  { name: 'iPad Air 13" (M2)', category: "iPad" },
+  { name: 'iPad Air 11" (M4)', category: "iPad" },
+  { name: 'iPad Air 11" (M3)', category: "iPad" },
+  { name: 'iPad Air 11" (M2)', category: "iPad" },
+  { name: "iPad Air 5", category: "iPad" },
+  { name: "iPad Air 4", category: "iPad" },
+  { name: "iPad Air 3", category: "iPad" },
+  { name: "iPad 11 (A16)", category: "iPad" },
+  { name: "iPad 10", category: "iPad" },
+  { name: "iPad 9", category: "iPad" },
+  { name: "iPad 8", category: "iPad" },
+  { name: "iPad 7", category: "iPad" },
+  { name: "iPad 6", category: "iPad" },
+  { name: "iPad 5", category: "iPad" },
+  { name: "iPad Mini 7 (A17 Pro)", category: "iPad" },
+  { name: "iPad Mini 6", category: "iPad" },
+  { name: "iPad Mini 5", category: "iPad" },
+  { name: "Apple Watch Ultra 3 49mm", category: "Apple Watch" },
+  { name: "Apple Watch Series 11 46mm", category: "Apple Watch" },
+  { name: "Apple Watch Series 11 42mm", category: "Apple Watch" },
+  { name: "Apple Watch SE (3rd Gen) 44mm", category: "Apple Watch" },
+  { name: "Apple Watch SE (3rd Gen) 40mm", category: "Apple Watch" },
+  { name: "Apple Watch Ultra 2 49mm", category: "Apple Watch" },
+  { name: "Apple Watch Series 10 46mm", category: "Apple Watch" },
+  { name: "Apple Watch Series 10 42mm", category: "Apple Watch" },
+  { name: "Apple Watch Series 9 45mm", category: "Apple Watch" },
+  { name: "Apple Watch Series 9 41mm", category: "Apple Watch" },
+  { name: "Apple Watch Ultra 49mm", category: "Apple Watch" },
+  { name: "Apple Watch Series 8 45mm", category: "Apple Watch" },
+  { name: "Apple Watch Series 8 41mm", category: "Apple Watch" },
+  { name: "Apple Watch SE (2nd Gen) 44mm", category: "Apple Watch" },
+  { name: "Apple Watch SE (2nd Gen) 40mm", category: "Apple Watch" },
+  { name: "Apple Watch Series 7 45mm", category: "Apple Watch" },
+  { name: "Apple Watch Series 7 41mm", category: "Apple Watch" },
+  { name: "Pixel 10 Pro Fold", category: "Google Pixel" },
+  { name: "Pixel 10 Pro XL", category: "Google Pixel" },
+  { name: "Pixel 10 Pro", category: "Google Pixel" },
+  { name: "Pixel 10a", category: "Google Pixel" },
+  { name: "Pixel 10", category: "Google Pixel" },
+  { name: "Pixel 9 Pro Fold", category: "Google Pixel" },
+  { name: "Pixel 9 Pro XL", category: "Google Pixel" },
+  { name: "Pixel 9 Pro", category: "Google Pixel" },
+  { name: "Pixel 9a", category: "Google Pixel" },
+  { name: "Pixel 9", category: "Google Pixel" },
+  { name: "Pixel Fold", category: "Google Pixel" },
+  { name: "Pixel 8 Pro", category: "Google Pixel" },
+  { name: "Pixel 8a", category: "Google Pixel" },
+  { name: "Pixel 8", category: "Google Pixel" },
+  { name: 'MacBook Air 13"', category: "MacBook" },
+  { name: 'MacBook Air 15"', category: "MacBook" },
+  { name: 'MacBook Pro 14"', category: "MacBook" },
+  { name: 'MacBook Pro 16"', category: "MacBook" },
+  { name: "AirPods Pro", category: "Other" },
+  { name: "Other device", category: "Other" },
+];
+
+/** Distinct categories in first-seen order — works on the seed or a DB list. */
+export function categoriesOf(items = ITEM_CATALOG) {
+  return [...new Set(items.map((i) => i.category))];
+}
+
+/** Distinct categories of the seed, for callers that predate the DB list. */
+export const CATALOG_CATEGORIES = categoriesOf(ITEM_CATALOG);
